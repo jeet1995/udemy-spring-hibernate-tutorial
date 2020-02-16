@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath:coach.properties"/>
+
+
+    <bean id="happyFortuneService" class="com.spring.tutorial.entity.fortuneService.HappyFortuneService"/>
+
+    <bean id="basketBallCoach" class="com.spring.tutorial.entity.coach.BasketballCoach">
+        <constructor-arg ref="happyFortuneService"/>
+    </bean>
+
+    <bean id="trackCoach" class="com.spring.tutorial.entity.coach.TrackCoach">
+        <constructor-arg ref="happyFortuneService"/>
+    </bean>
+
+    <bean id="cricketCoach" class="com.spring.tutorial.entity.coach.CricketCoach">
+        <property name="fortuneService" ref="happyFortuneService"/>
+        <property name="teamName" value="Sunrisers Hyderabad"/>
+    </bean>
+
+    <bean id="footballCoach" class="com.spring.tutorial.entity.coach.FootballCoach">
+        <constructor-arg ref="happyFortuneService"/>
+        <property name="teamName" value="${football.coach.team.name}"/>
+        <property name="coachEmail" value="${football.coach.email}"/>
+        <property name="coachName" value="${football.coach.name}"/>
+    </bean>
+
+</beans>

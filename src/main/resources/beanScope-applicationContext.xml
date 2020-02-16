@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="happyFortuneService" class="com.spring.tutorial.entity.fortuneService.HappyFortuneService"/>
+
+    <bean id="footballCoach" class="com.spring.tutorial.entity.coach.FootballCoach" scope="prototype">
+        <constructor-arg ref="happyFortuneService"/>
+        <property name="teamName" value="FC Barcelona"/>
+        <property name="coachEmail" value="quiquesetien@fcb.com"/>
+        <property name="coachName" value="Quique Setien"/>
+    </bean>
+
+</beans>
