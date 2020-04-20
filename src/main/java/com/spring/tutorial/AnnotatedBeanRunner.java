@@ -19,6 +19,9 @@ public class AnnotatedBeanRunner {
         // Check if the bean has been obtained correctly
         System.out.println(coach.getDailyWorkout());
 
+        // Check if the dependency injection has been correctly done
+        System.out.println(coach.getFortune());
+
         // Getting a bean with a default bean-id
         ICoach cricketCoach = classPathXmlApplicationContext.getBean("cricketCoach", ICoach.class);
 
@@ -26,6 +29,15 @@ public class AnnotatedBeanRunner {
 
         // Constructor injection of IFortuneService here
         System.out.println(cricketCoach.getFortune());
+
+        ICoach basketballCoach = classPathXmlApplicationContext.getBean("basketballCoach", ICoach.class);
+
+        System.out.println(basketballCoach.getDailyWorkout());
+
+        // Check field injection of IFortuneService here
+        System.out.println(basketballCoach.getFortune());
+
+
 
         // Close the spring context
         classPathXmlApplicationContext.close();

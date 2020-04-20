@@ -5,26 +5,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CricketCoach implements ICoach {
+public class BasketballCoach implements ICoach {
 
-    @Qualifier(value = "happyFortuneService")
+    // Field injection
+    @Qualifier(value = "sadFortuneService")
     @Autowired
     private IFortuneService fortuneService;
 
-    // @Qualifier cannot be used for constructor injection
-    // @Qualifier("happyFortuneService")
-/*    @Autowired
-    public CricketCoach(IFortuneService fortuneService) {
-        this.fortuneService = fortuneService;
-    }*/
-
+    @Override
     public String getDailyWorkout() {
-        return "Practice your front-foot defence!";
+        return "Practice your free throws";
     }
 
+    @Override
     public String getFortune() {
         return fortuneService.getFortune();
     }
-
 }
-

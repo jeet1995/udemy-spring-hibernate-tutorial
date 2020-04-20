@@ -2,7 +2,7 @@ package com.spring.tutorial.annotations.entity;
 
 import org.springframework.stereotype.Component;
 
-@Component("fortuneService")
+@Component(value = "happyFortuneService")
 public class HappyFortuneService implements IFortuneService {
 
     public String getFortune() {
