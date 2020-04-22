@@ -6,7 +6,12 @@
 
     <groupId>com.spring.tutorial</groupId>
     <artifactId>udemy-spring-hibernate-tutorial</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-hibernate</module>
+        <module>spring-webmvc</module>
+    </modules>
 
     <!--To prevent release version 5 error-->
     <properties>
