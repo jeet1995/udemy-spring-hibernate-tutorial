@@ -31,9 +31,9 @@ public class BasketballCoach implements ICoach {
         return fortuneService.getFortune();
     }
 
-    // Method invoked only after the bean is destroyed
+    // Method invoked just before the bean is destroyed
     @PreDestroy
     public void doSomethingPreDestroy() {
-        System.out.println("This method runs after destruction of the bean");
+        System.out.println("This method runs just before destruction of the bean");
     }
 }
